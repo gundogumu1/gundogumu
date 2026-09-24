@@ -1,0 +1,19 @@
+<!doctype html><html lang="tr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Yönetici girişi — İyi Haberler</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:#eff5e8;color:#17251f;font-family:"DM Sans",sans-serif}.box{width:min(410px,calc(100% - 32px));padding:34px;background:#fff;border-radius:16px;box-shadow:0 16px 45px #1b46251c}.mark{display:grid;place-items:center;width:40px;height:40px;background:#d9f36e;border-radius:50% 50% 50% 8px;transform:rotate(-22deg);font:21px Arial}.mark span{transform:rotate(22deg)}h1{font:700 27px "Playfair Display";margin:22px 0 8px}p{font-size:13px;color:#6d7a73;line-height:1.5;margin:0 0 24px}label{display:block;font-size:12px;font-weight:700;margin:14px 0 6px}input{width:100%;border:1px solid #dce5d9;border-radius:8px;padding:12px;outline-color:#196b49}button{width:100%;margin-top:21px;padding:12px;background:#196b49;color:#fff;border:0;border-radius:8px;font-weight:700;cursor:pointer}.error{min-height:18px;color:#b43b37;font-size:12px;margin-top:12px}</style><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script></head><body><main class="box"><div class="mark"><span>✦</span></div><h1>Yönetici girişi</h1><p>İyi Haberler yönetim paneline erişmek için giriş yapın.</p><form id="login"><label>E-posta</label><input id="email" type="email" required autocomplete="email"><label>Şifre</label><input id="password" type="password" required autocomplete="current-password"><button>Giriş yap</button><div class="error" id="error"></div></form></main><script>
+document.getElementById('login').addEventListener('submit', async e => {
+  e.preventDefault();
+  const emailValue = document.getElementById('email').value.trim();
+  const passwordValue = document.getElementById('password').value;
+  const errorBox = document.getElementById('error');
+  errorBox.textContent = '';
+  if (!window.supabaseClient) { errorBox.textContent = 'Supabase bağlantısı henüz ayarlanmadı.'; return; }
+  const { data, error: signInError } = await window.supabaseClient.auth.signInWithPassword({ email: emailValue, password: passwordValue });
+  if (signInError) { errorBox.textContent = 'E-posta veya şifre hatalı.'; return; }
+  const { data: profile, error: profileError } = await window.supabaseClient.from('profiles').select('role').eq('id', data.user.id).single();
+  if (profileError || profile?.role !== 'admin') {
+    await window.supabaseClient.auth.signOut();
+    errorBox.textContent = 'Bu hesap yönetici yetkisine sahip değil.';
+    return;
+  }
+  location.href = 'admin.html';
+});
+</script></body></html>

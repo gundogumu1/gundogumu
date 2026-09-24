@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Yönetim Paneli — İyi Haberler</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#196b49;--ink:#1a2922;--muted:#748178;--line:#e5eae4;--soft:#f7f8f4;--lime:#d9f36e;--orange:#ff9861}*{box-sizing:border-box}body{margin:0;font-family:"DM Sans",sans-serif;color:var(--ink);background:var(--soft)}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}.layout{display:grid;grid-template-columns:246px 1fr;min-height:100vh}.sidebar{background:#173d2c;color:#dbe9dc;padding:25px 15px;display:flex;flex-direction:column;position:sticky;top:0;height:100vh}.brand{display:flex;align-items:center;gap:9px;color:white;font:700 20px "Playfair Display";text-decoration:none;padding:0 10px 31px}.brand-mark{width:29px;height:29px;display:grid;place-items:center;border-radius:50% 50% 50% 7px;transform:rotate(-22deg);background:var(--lime);color:#173d2c;font:17px Arial}.menu-label{color:#86a594;font-size:10px;font-weight:700;letter-spacing:.12em;padding:0 11px 9px;text-transform:uppercase}.menu{list-style:none;padding:0;margin:0}.menu a{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:8px;color:#d4e3d8;text-decoration:none;font-size:13px;font-weight:600;margin:2px 0}.menu a:hover,.menu a.active{color:#fff;background:#ffffff18}.nav-icon{font-size:16px;width:18px;text-align:center}.badge{margin-left:auto;background:var(--orange);color:#532510;border-radius:20px;padding:2px 7px;font-size:10px}.sidebar-bottom{margin-top:auto;border-top:1px solid #ffffff19;padding-top:17px}.visit{display:block;color:#c5e6cf;text-decoration:none;font-size:12px;padding:10px}.profile{display:flex;gap:9px;align-items:center;padding:10px}.avatar{width:31px;height:31px;display:grid;place-items:center;background:#b8d888;border-radius:50%;font-size:11px;color:#264d35;font-weight:700}.profile b{display:block;font-size:12px;color:white}.profile small{color:#9fbbaa;font-size:10px}.main{padding:31px 38px 45px;max-width:1440px;width:100%;margin:auto}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:31px}.top h1{font:700 29px "Playfair Display";margin:0 0 5px;letter-spacing:-.02em}.top p{margin:0;color:var(--muted);font-size:13px}.new-btn{background:var(--green);color:#fff;border-radius:8px;padding:12px 16px;font-size:13px;font-weight:700;box-shadow:0 4px 12px #196b4925}.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px}.summary-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:17px;min-height:112px}.summary-card .icon{float:right;border-radius:9px;padding:8px;background:#ecf5df;font-size:17px}.summary-card:nth-child(2) .icon{background:#e4f1f5}.summary-card:nth-child(3) .icon{background:#fff0df}.summary-card:nth-child(4) .icon{background:#f4e5f2}.summary-card small{color:var(--muted);font-size:12px}.summary-card b{font:700 27px "Playfair Display";display:block;margin:10px 0 2px}.trend{font-size:11px;color:#328159;font-weight:700}.trend.down{color:#bd7954}.content-grid{display:grid;grid-template-columns:1.5fr .85fr;gap:19px}.panel{background:#fff;border:1px solid var(--line);border-radius:12px}.panel-head{display:flex;justify-content:space-between;align-items:center;padding:19px 20px;border-bottom:1px solid var(--line)}.panel-head h2{font-size:15px;margin:0}.panel-head a{color:var(--green);font-size:12px;font-weight:700;text-decoration:none}.news-row{display:grid;grid-template-columns:45px 1fr 95px 98px 28px;gap:12px;align-items:center;padding:13px 20px;border-bottom:1px solid var(--line)}.news-row:last-child{border:0}.news-img{display:grid;place-items:center;width:43px;height:38px;border-radius:7px;background:#c5e5f3;font-size:19px}.news-row:nth-child(3) .news-img{background:#fae2ae}.news-row:nth-child(4) .news-img{background:#eacdea}.news-title{font-size:13px;font-weight:700}.news-cat{font-size:11px;color:var(--muted);margin-top:4px}.pill{padding:5px 7px;border-radius:20px;font-size:10px;font-weight:700;text-align:center}.published{background:#daf2e2;color:#27704c}.draft{background:#fff0d9;color:#9a6225}.row-meta{font-size:11px;color:var(--muted)}.dots{color:#849087;background:transparent;font-size:20px}.comments-panel{margin-top:19px}.comment-row{padding:14px 20px;border-bottom:1px solid var(--line);display:flex;gap:10px}.comment-row:last-child{border:0}.comment-row .avatar{flex:0 0 31px}.comment-copy{min-width:0}.comment-copy b{font-size:12px}.comment-copy span{font-size:10px;color:var(--muted);margin-left:5px}.comment-copy p{font-size:12px;color:#506158;margin:4px 0 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:310px}.actions{margin-left:auto;display:flex;align-items:center;gap:5px}.small-btn{padding:6px 8px;border-radius:6px;font-size:11px;font-weight:700}.approve{background:#daf2e2;color:#237049}.reject{background:#f8e7e1;color:#a75843}.chart{padding:20px 20px 15px}.chart-bars{height:159px;border-bottom:1px solid var(--line);display:flex;align-items:end;justify-content:space-between;gap:9px;padding:0 4px}.bar-wrap{height:100%;flex:1;display:flex;align-items:end}.bar{width:100%;min-height:8px;border-radius:5px 5px 0 0;background:#bbdd9b}.bar.today{background:var(--green)}.chart-days{display:flex;justify-content:space-between;color:var(--muted);font-size:10px;margin-top:9px}.quick{padding:10px 20px 19px}.quick h3{font-size:12px;margin:6px 0 11px}.quick-action{width:100%;text-align:left;padding:11px;border:1px solid var(--line);border-radius:8px;background:#fff;margin-top:7px;color:#476154;font-size:12px;font-weight:600}.quick-action:hover{background:#f3f8ee}.modal-bg{display:none;position:fixed;inset:0;background:#17251f88;padding:20px;z-index:5;align-items:center;justify-content:center}.modal-bg.open{display:flex}.modal{width:min(620px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:14px}.modal-header{display:flex;justify-content:space-between;align-items:center;padding:20px 23px;border-bottom:1px solid var(--line)}.modal-header h2{font:700 22px "Playfair Display";margin:0}.close{background:#edf1eb;border-radius:50%;width:30px;height:30px;font-size:19px}.form{padding:21px 23px;display:grid;grid-template-columns:1fr 1fr;gap:15px}.form label{font-size:12px;font-weight:700}.form label.full{grid-column:span 2}.form input,.form select,.form textarea{display:block;width:100%;margin-top:7px;border:1px solid #dce3db;border-radius:7px;padding:10px;outline-color:var(--green);font-size:13px}.form textarea{height:105px;resize:vertical}.form-foot{grid-column:span 2;display:flex;justify-content:flex-end;gap:8px;margin-top:5px}.cancel{padding:10px 13px;border-radius:7px;background:#eef1ed;color:#526158;font-size:12px;font-weight:700}.save{padding:10px 15px;border-radius:7px;background:var(--green);color:#fff;font-size:12px;font-weight:700}@media(max-width:960px){.summary{grid-template-columns:repeat(2,1fr)}.content-grid{grid-template-columns:1fr}.sidebar{position:fixed;z-index:4;transform:translateX(-100%);transition:.2s}.sidebar.show{transform:none}.layout{grid-template-columns:1fr}.main{padding:24px 20px}.mobile-menu{display:block!important}}@media(max-width:600px){.summary{grid-template-columns:1fr 1fr;gap:9px}.summary-card{padding:13px;min-height:100px}.summary-card b{font-size:23px}.top{align-items:flex-start}.new-btn{padding:10px;font-size:11px}.news-row{grid-template-columns:39px 1fr 26px;padding:12px}.news-row .pill,.news-row .row-meta{display:none}.content-grid{gap:12px}.form{grid-template-columns:1fr}.form label.full,.form-foot{grid-column:auto}.comment-copy p{max-width:150px}}.mobile-menu{display:none;background:#e5f0df;color:var(--green);border-radius:7px;padding:8px}
+  </style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script></head>
+<body>
+  <div class="layout"><aside class="sidebar" id="sidebar"><a class="brand" href="index.html"><span class="brand-mark">✦</span> iyi haberler</a><div class="menu-label">Yönetim</div><ul class="menu"><li><a class="active" href="#"><span class="nav-icon">▦</span> Genel bakış</a></li><li><a href="#haberler"><span class="nav-icon">▤</span> Haberler <span class="badge">42</span></a></li><li><a href="#yorumlar"><span class="nav-icon">◌</span> Yorumlar <span class="badge">8</span></a></li><li><a href="#"><span class="nav-icon">✉</span> Bülten</a></li></ul><div class="menu-label" style="margin-top:25px">Ayarlar</div><ul class="menu"><li><a href="#"><span class="nav-icon">⚙</span> Site ayarları</a></li></ul><div class="sidebar-bottom"><a class="visit" href="index.html">↗ Siteyi görüntüle</a><div class="profile"><div class="avatar">A</div><div><b>Admin</b><small>Yönetici</small></div></div><button id="logoutBtn" style="margin:8px 10px 0;padding:9px;border-radius:7px;background:#ffffff14;color:#dbe9dc;font-weight:700">Çıkış yap</button></div></aside>
+  <main class="main"><div class="top"><div><button class="mobile-menu" onclick="document.getElementById('sidebar').classList.toggle('show')">☰ Menü</button><h1>Günaydın, Selin 👋</h1><p>İyi Haberler'in bugün nasıl ilerlediğine göz atalım.</p></div><button class="new-btn" onclick="openModal()">＋ Yeni haber oluştur</button></div>
+  <section class="summary"><div class="summary-card"><span class="icon">◉</span><small>Toplam ziyaretçi</small><b>12.840</b><span class="trend">↑ %12,5 bu ay</span></div><div class="summary-card"><span class="icon">▤</span><small>Yayınlanan haber</small><b>42</b><span class="trend">↑ Bu ay +6</span></div><div class="summary-card"><span class="icon">◌</span><small>Yorumlar</small><b>286</b><span class="trend">↑ %8,2 bu ay</span></div><div class="summary-card"><span class="icon">✉</span><small>Bülten aboneleri</small><b>1.057</b><span class="trend down">↓ %1,2 bu ay</span></div></section>
+  <section class="content-grid"><div><section class="panel" id="haberler"><div class="panel-head"><h2>Son haberler</h2><a href="#">Tümünü yönet →</a></div><div id="newsList"><div class="news-row"><div class="news-img">🐬</div><div><div class="news-title">Akdeniz'de yunusların sayısı artıyor</div><div class="news-cat">Doğa · Bugün, 09:30</div></div><span class="pill published">Yayında</span><span class="row-meta">28 yorum</span><button class="dots">⋮</button></div><div class="news-row"><div class="news-img">🌱</div><div><div class="news-title">Mahalle bahçesi 400 aileyi bir araya getirdi</div><div class="news-cat">Toplum · Dün, 15:12</div></div><span class="pill published">Yayında</span><span class="row-meta">16 yorum</span><button class="dots">⋮</button></div><div class="news-row"><div class="news-img">🎨</div><div><div class="news-title">Çocukların çizimleri şehri renklendiriyor</div><div class="news-cat">Kültür · 21 Eylül</div></div><span class="pill draft">Taslak</span><span class="row-meta">—</span><button class="dots">⋮</button></div></div></section>
+  <section class="panel comments-panel" id="yorumlar"><div class="panel-head"><h2>Onay bekleyen yorumlar <span id="pendingCount" style="color:#bd7954">(3)</span></h2><a href="#">Tüm yorumlar →</a></div><div id="pendingComments"><div class="comment-row"><div class="avatar">DK</div><div class="comment-copy"><b>Deniz Kaya</b><span>10 dk önce</span><p>Bu haberler gerçekten insana umut veriyor, teşekkür ederim.</p></div><div class="actions"><button class="small-btn approve" onclick="approve(this)">Onayla</button><button class="small-btn reject" onclick="reject(this)">Sil</button></div></div><div class="comment-row"><div class="avatar">ZA</div><div class="comment-copy"><b>Zeynep A.</b><span>25 dk önce</span><p>Harika bir proje, mahallemizde de uygulanmasını isterim.</p></div><div class="actions"><button class="small-btn approve" onclick="approve(this)">Onayla</button><button class="small-btn reject" onclick="reject(this)">Sil</button></div></div><div class="comment-row"><div class="avatar">BO</div><div class="comment-copy"><b>Bora O.</b><span>1 saat önce</span><p>Doğa için yapılan her çalışma çok kıymetli.</p></div><div class="actions"><button class="small-btn approve" onclick="approve(this)">Onayla</button><button class="small-btn reject" onclick="reject(this)">Sil</button></div></div></div></section></div>
+  <aside><section class="panel"><div class="panel-head"><h2>Ziyaretçi trafiği</h2><a href="#">Bu hafta⌄</a></div><div class="chart"><div class="chart-bars"><div class="bar-wrap"><div class="bar" style="height:43%"></div></div><div class="bar-wrap"><div class="bar" style="height:67%"></div></div><div class="bar-wrap"><div class="bar" style="height:51%"></div></div><div class="bar-wrap"><div class="bar" style="height:82%"></div></div><div class="bar-wrap"><div class="bar" style="height:62%"></div></div><div class="bar-wrap"><div class="bar" style="height:74%"></div></div><div class="bar-wrap"><div class="bar today" style="height:94%"></div></div></div><div class="chart-days"><span>Pzt</span><span>Sal</span><span>Çar</span><span>Per</span><span>Cum</span><span>Cmt</span><span>Paz</span></div></div><div class="quick"><h3>Hızlı işlemler</h3><button class="quick-action" onclick="openModal()">＋ Yeni haber yaz</button><button class="quick-action" onclick="document.getElementById('yorumlar').scrollIntoView({behavior:'smooth'})">◌ Yorumları incele</button><button class="quick-action" onclick="alert('Bülten istatistikleri yakında burada olacak.')">✉ Bülten raporu</button></div></section></aside></section></main></div>
+  <div class="modal-bg" id="modal"><section class="modal"><div class="modal-header"><h2>Yeni haber oluştur</h2><button class="close" onclick="closeModal()">×</button></div><form class="form" onsubmit="addNews(event)"><label class="full">Haber başlığı<input id="headline" required placeholder="Örn. Gönüllüler 5 bin fidan dikti"></label><label>Kategori<select id="category"><option>Doğa</option><option>Toplum</option><option>Kültür</option><option>Bilim & Teknoloji</option></select></label><label>Durum<select id="status"><option>Yayında</option><option>Taslak</option></select></label><label class="full">Haber özeti<textarea placeholder="Haberin kısa özetini yazın..."></textarea></label><div class="form-foot"><button type="button" class="cancel" onclick="closeModal()">Vazgeç</button><button class="save">Haberi kaydet</button></div></form></section></div>
+  <script>
+  function openModal(){document.getElementById('modal').classList.add('open')}
+  function closeModal(){document.getElementById('modal').classList.remove('open')}
+  document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
+
+  const form = document.querySelector('.form');
+  const coverField = document.createElement('label');
+  coverField.className = 'full';
+  coverField.innerHTML = 'Kapak fotoğrafı<input id="photo" type="file" accept="image/png,image/jpeg,image/webp"><span style="display:block;color:#748178;font-size:10px;font-weight:400;margin-top:5px">PNG, JPG veya WebP formatında görsel seçin.</span>';
+  form.querySelector('.form-foot').before(coverField);
+
+  let adminComments = [], adminNews = [], showAllComments = false, showAllNews = false;
+  const commentPanel = document.getElementById('pendingComments');
+  const newsPanel = document.getElementById('newsList');
+  const commentLink = [...document.querySelectorAll('.panel-head a')].find(a => a.textContent.includes('Tüm yorumlar'));
+  const newsLink = [...document.querySelectorAll('.panel-head a')].find(a => a.textContent.includes('Tümünü yönet'));
+
+  function initials(name) { return String(name || '').split(/\s+/).slice(0,2).map(value => value[0]).join('').toUpperCase() || 'A'; }
+  function newsStatus(news) { return news.published ? 'Yayında' : 'Taslak'; }
+
+  function renderAdminComments() {
+    const list = showAllComments ? adminComments : adminComments.filter(c => !c.approved);
+    commentPanel.textContent = '';
+    list.forEach(comment => {
+      const row = document.createElement('div'); row.className = 'comment-row';
+      const avatar = document.createElement('div'); avatar.className = 'avatar'; avatar.textContent = initials(comment.name);
+      const copy = document.createElement('div'); copy.className = 'comment-copy';
+      const name = document.createElement('b'); name.textContent = comment.name;
+      const time = document.createElement('span'); time.textContent = new Date(comment.created_at).toLocaleString('tr-TR');
+      const message = document.createElement('p'); message.textContent = comment.content;
+      copy.append(name, time, message);
+      const actions = document.createElement('div'); actions.className = 'actions';
+      if (!comment.approved) {
+        const approve = document.createElement('button'); approve.className = 'small-btn approve'; approve.textContent = 'Onayla'; approve.onclick = () => updateComment(comment.id, true);
+        const reject = document.createElement('button'); reject.className = 'small-btn reject'; reject.textContent = 'Sil'; reject.onclick = () => deleteComment(comment.id);
+        actions.append(approve, reject);
+      } else {
+        const status = document.createElement('span'); status.className = 'pill published'; status.textContent = 'Onaylandı'; actions.append(status);
+      }
+      row.append(avatar, copy, actions); commentPanel.append(row);
+    });
+    const pending = adminComments.filter(c => !c.approved).length;
+    document.getElementById('pendingCount').textContent = `(${pending})`;
+    commentLink.textContent = showAllComments ? 'Yalnızca bekleyenler ↑' : 'Tüm yorumlar →';
+    const total = document.getElementById('commentTotal'); if (total) total.textContent = adminComments.length;
+  }
+
+  function renderAdminNews() {
+    newsPanel.textContent = '';
+    const list = showAllNews ? adminNews : adminNews.slice(0,5);
+    list.forEach(news => {
+      const row = document.createElement('div'); row.className = 'news-row';
+      const image = document.createElement('div'); image.className = 'news-img'; image.style.overflow='hidden';
+      if (news.image_url) { const img = document.createElement('img'); img.src = news.image_url; img.alt = ''; Object.assign(img.style,{width:'100%',height:'100%',objectFit:'cover'}); image.append(img); } else image.textContent = '📰';
+      const content = document.createElement('div'); const title = document.createElement('div'); title.className = 'news-title'; title.textContent = news.title; const meta = document.createElement('div'); meta.className = 'news-cat'; meta.textContent = `${news.category || 'Genel'} · ${new Date(news.created_at).toLocaleDateString('tr-TR')}`; content.append(title,meta);
+      const status = document.createElement('span'); status.className = `pill ${news.published ? 'published' : 'draft'}`; status.textContent = newsStatus(news);
+      const date = document.createElement('span'); date.className='row-meta'; date.textContent = new Date(news.created_at).toLocaleDateString('tr-TR');
+      row.append(image,content,status,date); newsPanel.append(row);
+    });
+    newsLink.textContent = showAllNews ? 'Daha az göster ↑' : 'Tümünü yönet →';
+    const total = document.getElementById('newsTotal'); if (total) total.textContent = adminNews.filter(n=>n.published).length;
+  }
+
+  async function loadData() {
+    const [{data: comments, error: commentError}, {data: news, error: newsError}] = await Promise.all([
+      window.supabaseClient.from('comments').select('*').order('created_at',{ascending:false}),
+      window.supabaseClient.from('news').select('*').order('created_at',{ascending:false})
+    ]);
+    if (commentError) throw commentError;
+    if (newsError) throw newsError;
+    adminComments = comments || [];
+    adminNews = news || [];
+    renderAdminComments(); renderAdminNews();
+  }
+
+  async function updateComment(id, approved) {
+    const {error} = await window.supabaseClient.from('comments').update({approved}).eq('id',id);
+    if (error) return alert(error.message);
+    await loadData();
+  }
+  async function deleteComment(id) {
+    if (!confirm('Bu yorumu silmek istediğine emin misin?')) return;
+    const {error} = await window.supabaseClient.from('comments').delete().eq('id',id);
+    if (error) return alert(error.message);
+    await loadData();
+  }
+
+  commentLink.addEventListener('click', event => { event.preventDefault(); showAllComments=!showAllComments; renderAdminComments(); });
+  newsLink.addEventListener('click', event => { event.preventDefault(); showAllNews=!showAllNews; renderAdminNews(); });
+
+  function slugify(value){
+    return value.toString().toLowerCase().trim().replace(/ğ/g,'g').replace(/ü/g,'u').replace(/ş/g,'s').replace(/ı/g,'i').replace(/ö/g,'o').replace(/ç/g,'c').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,70);
+  }
+  function fileToDataUrl(file){ return new Promise((resolve,reject)=>{ if(!file) return resolve(''); const reader=new FileReader(); reader.onload=()=>resolve(reader.result); reader.onerror=reject; reader.readAsDataURL(file); }); }
+
+  form.onsubmit = async event => {
+    event.preventDefault();
+    const save = document.querySelector('.save'); save.disabled=true; save.textContent='Kaydediliyor…';
+    try {
+      const title = document.getElementById('headline').value.trim();
+      const category = document.getElementById('category').value;
+      const published = document.getElementById('status').value === 'Yayında';
+      const excerpt = form.querySelector('textarea').value.trim();
+      const file = document.getElementById('photo').files[0];
+      if (file && file.size > 1200000) throw new Error('Görsel 1.2 MB altında olmalı.');
+      const image_url = await fileToDataUrl(file);
+      const slug = `${slugify(title)}-${Date.now().toString(36)}`;
+      const payload = {title, slug, excerpt, content: excerpt || title, image_url, category, author:'Gündoğumu', published};
+      const {error} = await window.supabaseClient.from('news').insert(payload);
+      if (error) throw error;
+      await loadData(); event.target.reset(); closeModal();
+    } catch (error) { alert(error.message || 'Haber kaydedilemedi.'); }
+    finally { save.disabled=false; save.textContent='Haberi kaydet'; }
+  };
+
+  document.getElementById('logoutBtn').addEventListener('click', async () => { await window.supabaseClient.auth.signOut(); location.href='login.html'; });
+
+  (async () => {
+    if (!window.supabaseClient) { alert('Supabase bağlantısı ayarlanmadı.'); location.replace('login.html'); return; }
+    const {data:{user}} = await window.supabaseClient.auth.getUser();
+    if (!user) { location.replace('login.html'); return; }
+    const {data: profile, error} = await window.supabaseClient.from('profiles').select('role').eq('id',user.id).single();
+    if (error || profile?.role !== 'admin') { await window.supabaseClient.auth.signOut(); location.replace('login.html'); return; }
+    document.querySelector('.profile b').textContent = user.email || 'Admin';
+    document.querySelector('.profile .avatar').textContent = initials(user.email || 'Admin');
+    document.querySelector('.top h1').textContent = 'Merhaba, Admin 👋';
+    document.querySelector('.top p').textContent = "Gündoğumu'nun bugün nasıl ilerlediğine göz atalım.";
+    await loadData();
+  })().catch(error => { console.error(error); alert('Panel verileri yüklenemedi: ' + (error.message || error)); });
+</script></body></html>

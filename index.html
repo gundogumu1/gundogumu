@@ -1,0 +1,1175 @@
+<!doctype html>
+<html lang="tr">
+
+<head>
+  <meta name="google-site-verification" content="VNU8brlNU5KdNL4-aE7ggOQv1m_N_wT3d9xKLPPGPqQ" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gündoğumu — Günün güzel gelişmeleri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="icon" href="https://www.shutterstock.com/image-vector/sun-line-vector-icon-600w-659999746.jpg">
+  <style>
+    :root {
+      --ink: #17251f;
+      --muted: #6d7a73;
+      --green: #196b49;
+      --lime: #d9f36e;
+      --cream: #fbfaf5;
+      --line: #e8ebe3;
+      --orange: #ff9861;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: "DM Sans", sans-serif;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit
+    }
+
+    button {
+      cursor: pointer;
+      border: 0
+    }
+
+    .topline {
+      background: var(--green);
+      color: #e9f6ca;
+      text-align: center;
+      padding: 9px 20px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .03em
+    }
+
+    header {
+      max-width: 1200px;
+      height: 84px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "Playfair Display";
+      font-size: 25px;
+      font-weight: 800;
+      text-decoration: none;
+      color: var(--ink)
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 50% 50% 50% 7px;
+      transform: rotate(-22deg);
+      display: grid;
+      place-items: center;
+      background: var(--lime);
+      font-family: Arial;
+      font-size: 19px
+    }
+
+    nav {
+      display: flex;
+      gap: 27px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 600
+    }
+
+    nav a:hover {
+      color: var(--green)
+    }
+
+    .admin-trigger {
+      background: transparent;
+      color: var(--green);
+      font-weight: 700;
+      font-size: 13px;
+      border: 1px solid #bbcfbf;
+      border-radius: 100px;
+      padding: 9px 15px;
+      text-decoration: none
+    }
+
+    .hero {
+      max-width: 1152px;
+      margin: 20px auto 55px;
+      min-height: 385px;
+      padding: 60px 58px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      background: #dff2cb;
+    }
+
+    .hero:before,
+    .hero:after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: #b8df8a;
+      opacity: .75;
+    }
+
+    .hero:before {
+      width: 350px;
+      height: 350px;
+      right: -60px;
+      top: -126px
+    }
+
+    .hero:after {
+      width: 190px;
+      height: 190px;
+      right: 135px;
+      bottom: -110px;
+      background: var(--orange)
+    }
+
+    .hero-content {
+      max-width: 650px;
+      position: relative;
+      z-index: 1
+    }
+
+    .eyebrow {
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 14px 0 18px;
+      font: 800 48px/1.1 "Playfair Display";
+      letter-spacing: -.035em
+    }
+
+    .hero p {
+      max-width: 515px;
+      margin: 0 0 27px;
+      font-size: 17px;
+      line-height: 1.6;
+      color: #456053
+    }
+
+    .cta {
+      padding: 12px 19px;
+      border-radius: 9px;
+      background: var(--green);
+      color: white;
+      font-weight: 700;
+      font-size: 14px
+    }
+
+    .hero-art {
+      position: absolute;
+      z-index: 1;
+      right: 80px;
+      bottom: 26px;
+      font-size: 105px;
+      filter: drop-shadow(0 8px 4px #759c6b55)
+    }
+
+    main {
+      max-width: 1152px;
+      margin: auto;
+      padding: 0 24px 80px
+    }
+
+    .section-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin-bottom: 22px
+    }
+
+    .section-top h2 {
+      margin: 0;
+      font: 700 29px "Playfair Display";
+      letter-spacing: -.02em
+    }
+
+    .section-top a {
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none
+    }
+
+    .categories {
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+      margin-bottom: 29px
+    }
+
+    .chip {
+      color: #50645a;
+      background: #edf0e9;
+      padding: 8px 15px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600
+    }
+
+    .chip.active,
+    .chip:hover {
+      background: var(--green);
+      color: white
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr 1fr;
+      gap: 20px
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      background: white;
+      transition: transform .2s, box-shadow .2s
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 27px #20453013
+    }
+
+    .visual {
+      height: 155px;
+      display: grid;
+      place-items: center;
+      font-size: 57px;
+      position: relative;
+      overflow: hidden
+    }
+
+    .visual span {
+      position: relative;
+      z-index: 1
+    }
+
+    .visual:before {
+      content: "";
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      position: absolute;
+      transform: translate(40px, -27px);
+      background: #fff8ba88
+    }
+
+    .v1 {
+      background: #bfe5f5
+    }
+
+    .v2 {
+      background: #fae1ae
+    }
+
+    .v3 {
+      background: #e9cceb
+    }
+
+    .v4 {
+      background: #cce8d0
+    }
+
+    .v5 {
+      background: #f3d0bc
+    }
+
+    .lead .visual {
+      height: 250px;
+      font-size: 93px
+    }
+
+    .card-body {
+      padding: 17px 18px 19px
+    }
+
+    .tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: var(--green)
+    }
+
+    .card h3 {
+      font: 700 18px/1.25 "Playfair Display";
+      margin: 8px 0 13px;
+      letter-spacing: -.015em
+    }
+
+    .lead h3 {
+      font-size: 25px
+    }
+
+    .meta {
+      color: #829087;
+      font-size: 12px;
+      display: flex;
+      gap: 11px;
+      align-items: center
+    }
+
+    .comment-count {
+      margin-left: auto;
+      color: #496a59;
+      font-weight: 700
+    }
+
+    .newsletter {
+      margin-top: 64px;
+      border-radius: 18px;
+      padding: 36px 42px;
+      background: var(--green);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px
+    }
+
+    .newsletter h2 {
+      font: 700 28px "Playfair Display";
+      margin: 0 0 7px
+    }
+
+    .newsletter p {
+      margin: 0;
+      color: #c9e0c7;
+      font-size: 14px
+    }
+
+    .subscribe {
+      display: flex;
+      min-width: 350px;
+      padding: 5px;
+      border-radius: 9px;
+      background: white
+    }
+
+    .subscribe input {
+      flex: 1;
+      min-width: 0;
+      border: 0;
+      outline: 0;
+      padding: 7px 10px;
+      font-size: 13px
+    }
+
+    .subscribe button {
+      padding: 10px 14px;
+      border-radius: 6px;
+      background: var(--lime);
+      color: #18351f;
+      font-weight: 700;
+      font-size: 13px
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 24px;
+      color: #738078;
+      font-size: 12px;
+      text-align: center
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 10;
+      background: #17251f88
+    }
+
+    .modal-backdrop.open {
+      display: flex
+    }
+
+    .modal {
+      width: min(850px, 100%);
+      max-height: 90vh;
+      overflow: auto;
+      border-radius: 18px;
+      background: var(--cream);
+      box-shadow: 0 20px 70px #0004
+    }
+
+    .modal-head {
+      padding: 22px 27px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--green);
+      color: white
+    }
+
+    .modal-head h2 {
+      margin: 0;
+      font: 700 24px "Playfair Display"
+    }
+
+    .close {
+      background: #ffffff24;
+      color: white;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-size: 21px
+    }
+
+    .admin-content {
+      padding: 25px 27px
+    }
+
+    .admin-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 24px
+    }
+
+    .stat {
+      padding: 17px;
+      border-radius: 11px;
+      background: #e9f2df
+    }
+
+    .stat b {
+      display: block;
+      font: 700 25px "Playfair Display"
+    }
+
+    .stat small {
+      color: #5b7162
+    }
+
+    .admin-content h3 {
+      margin: 20px 0 10px;
+      font-size: 15px
+    }
+
+    .admin-list {
+      margin: 0;
+      padding: 0;
+      list-style: none
+    }
+
+    .admin-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-top: 1px solid var(--line);
+      font-size: 14px
+    }
+
+    .status {
+      padding: 4px 8px;
+      border-radius: 9px;
+      color: #18704e;
+      background: #daf1df;
+      font-size: 11px;
+      font-weight: 700;
+      margin-left: auto
+    }
+
+    .publish {
+      margin-top: 20px;
+      background: var(--green);
+      color: white;
+      padding: 11px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13px
+    }
+
+    .comments {
+      margin-top: 55px;
+      border-top: 1px solid var(--line);
+      padding-top: 35px;
+      max-width: 760px
+    }
+
+    .comments h2 {
+      font: 700 26px "Playfair Display";
+      margin: 0 0 19px
+    }
+
+    .comment-form {
+      padding: 17px;
+      border: 1px solid var(--line);
+      background: white;
+      border-radius: 12px
+    }
+
+    .comment-form input,
+    .comment-form textarea {
+      border: 0;
+      outline: 0;
+      width: 100%;
+      padding: 7px 4px;
+      color: var(--ink)
+    }
+
+    .comment-form textarea {
+      min-height: 60px;
+      resize: vertical
+    }
+
+    .comment-form-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--line);
+      padding-top: 10px
+    }
+
+    .comment-form-footer small {
+      color: var(--muted);
+      font-size: 11px
+    }
+
+    .comment-form button {
+      border-radius: 7px;
+      padding: 8px 14px;
+      background: var(--green);
+      color: white;
+      font-weight: 700;
+      font-size: 12px
+    }
+
+    .comment {
+      display: flex;
+      gap: 11px;
+      margin-top: 21px
+    }
+
+    .avatar {
+      width: 33px;
+      height: 33px;
+      flex: 0 0 33px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #386045;
+      background: #d9f1c5;
+      font-size: 13px;
+      font-weight: 700
+    }
+
+    .comment-text {
+      font-size: 13px;
+      line-height: 1.55
+    }
+
+    .comment-text b {
+      font-size: 13px
+    }
+
+    .comment-text time {
+      color: #8b968f;
+      margin-left: 7px;
+      font-size: 11px
+    }
+
+    .comment-text p {
+      margin: 4px 0 0;
+      color: #526259
+    }
+
+    @media(max-width:800px) {
+      nav {
+        display: none
+      }
+
+      .hero {
+        margin: 0 16px 40px;
+        padding: 44px 30px;
+        min-height: 350px
+      }
+
+      .hero-art {
+        right: 25px;
+        opacity: .55
+      }
+
+      h1 {
+        font-size: 38px
+      }
+
+      .grid {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .lead {
+        grid-column: span 2
+      }
+
+      .newsletter {
+        margin-top: 40px;
+        padding: 28px;
+        display: block
+      }
+
+      .subscribe {
+        margin-top: 19px;
+        min-width: 0
+      }
+
+      .admin-stats {
+        grid-template-columns: 1fr
+      }
+
+      .hero p {
+        max-width: 420px
+      }
+    }
+
+    @media(max-width:480px) {
+      header {
+        height: 68px;
+        padding: 0 17px
+      }
+
+      .brand {
+        font-size: 21px
+      }
+
+      .admin-trigger {
+        padding: 7px 10px
+      }
+
+      .grid {
+        grid-template-columns: 1fr
+      }
+
+      .lead {
+        grid-column: auto
+      }
+
+      .lead .visual {
+        height: 200px
+      }
+
+      .hero {
+        padding: 38px 24px
+      }
+
+      .hero-art {
+        font-size: 70px;
+        bottom: 8px
+      }
+
+      main {
+        padding: 0 16px 50px
+      }
+
+      h1 {
+        font-size: 33px
+      }
+
+      .section-top h2 {
+        font-size: 25px
+      }
+    }
+  </style>
+  <style>
+    /* Her haber için bağımsız yorum bölümü */
+    main>.comments {
+      display: none;
+    }
+
+    .card-comments {
+      border-top: 1px solid var(--line);
+      padding: 14px 17px 17px;
+      background: #fcfdfa;
+    }
+
+    .card-comments summary {
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .card-comments summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .card-comments summary::after {
+      content: '+';
+      float: right;
+      font-size: 16px;
+      line-height: 12px;
+    }
+
+    .card-comments[open] summary::after {
+      content: '−';
+    }
+
+    .inline-comments {
+      margin: 12px 0;
+      max-height: 170px;
+      overflow: auto;
+    }
+
+    .inline-comment {
+      display: flex;
+      gap: 8px;
+      margin: 10px 0;
+      color: #526259;
+      font-size: 11px;
+      line-height: 1.4;
+    }
+
+    .inline-comment .avatar {
+      width: 25px;
+      height: 25px;
+      flex-basis: 25px;
+      font-size: 9px;
+    }
+
+    .inline-comment b {
+      color: var(--ink);
+      font-size: 11px;
+    }
+
+    .inline-comment p {
+      margin: 2px 0 0;
+    }
+
+    .inline-form {
+      display: grid;
+      grid-template-columns: 100px 1fr auto;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .inline-form input {
+      min-width: 0;
+      border: 1px solid #dce5dc;
+      border-radius: 6px;
+      padding: 7px;
+      font-size: 11px;
+      outline-color: var(--green);
+    }
+
+    .inline-form button {
+      padding: 7px 9px;
+      border-radius: 6px;
+      background: var(--green);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .inline-note {
+      color: var(--muted);
+      font-size: 10px;
+      margin: 8px 0 0;
+    }
+
+    .weather-widget {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 126px;
+      padding: 7px 10px;
+      border: 1px solid #dce8d9;
+      border-radius: 10px;
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .weather-icon {
+      font-size: 21px;
+      line-height: 1;
+    }
+
+    .weather-copy {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .weather-copy b {
+      font-size: 13px;
+    }
+
+    .weather-copy small {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .weather-widget.loading .weather-icon {
+      animation: pulse 1.2s infinite;
+    }
+
+    @keyframes pulse {
+      50% {
+        opacity: .4;
+      }
+    }
+
+    @media(max-width:480px) {
+      .inline-form {
+        grid-template-columns: 1fr auto;
+      }
+
+      .inline-form input:nth-child(2) {
+        grid-column: span 2;
+      }
+    }
+
+    @media(max-width:480px) {
+      .weather-widget {
+        min-width: auto;
+        padding: 6px 8px;
+      }
+
+      .weather-copy small {
+        display: none;
+      }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+</head>
+
+<body>
+  <div class="topline">GÜNE İYİ HABERLERLE</div>
+  <header>
+    <a href="#" class="brand"><span class="brand-mark">✦</span> Gündoğumu</a>
+    <nav><a href="#haberler">Haberler</a><a href="#yorumlar">Topluluk</a></nav>
+    <div class="weather-widget loading" id="weather" aria-label="Hava durumu"><span class="weather-icon">☀️</span><span
+        class="weather-copy"><b>—°</b><small>Hava durumu</small></span></div>
+  </header>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">Her gün bir iyi haber</div>
+      <h1>Dünyadan iç ısıtan gelişmeler.</h1>
+      <p>İnsanlara, doğaya ve geleceğe dair umudu çoğaltan haberleri bir araya getiriyoruz.</p><a class="cta"
+        href="#haberler">Güzel haberleri keşfet ↓</a>
+    </div>
+    <div class="hero-art">🌻</div>
+  </section>
+  <main id="haberler">
+    <div class="section-top">
+      <h2>Günün güzel haberleri</h2><a href="#">Tüm haberler →</a>
+    </div>
+    <div class="categories"><button class="chip active">Tümü</button><button class="chip">Doğa</button><button
+        class="chip">İnsan Hikâyeleri</button><button class="chip">Bilim &amp; Teknoloji</button><button
+        class="chip">Kültür</button></div>
+    <div class="grid">
+      <article class="card lead">
+        <div class="visual v1"><span>🐬</span></div>
+        <div class="card-body">
+          <div class="tag">Doğa</div>
+          <h3>Akdeniz'de nesli tehlike altındaki yunusların sayısı artıyor</h3>
+          <div class="meta">Bugün · 4 dk okuma <span class="comment-count">◌ 28 yorum</span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="visual v2"><span>🌱</span></div>
+        <div class="card-body">
+          <div class="tag">Toplum</div>
+          <h3>Mahalle bahçesi 400 aileyi bir araya getirdi</h3>
+          <div class="meta">Bugün · 3 dk <span class="comment-count">◌ 16</span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="visual v3"><span>🎨</span></div>
+        <div class="card-body">
+          <div class="tag">Kültür</div>
+          <h3>Çocukların çizimleri şehir duvarlarını renklendiriyor</h3>
+          <div class="meta">Dün · 2 dk <span class="comment-count">◌ 9</span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="visual v4"><span>🦉</span></div>
+        <div class="card-body">
+          <div class="tag">Doğa</div>
+          <h3>Gönüllüler binlerce fidanı toprakla buluşturdu</h3>
+          <div class="meta">Dün · 3 dk <span class="comment-count">◌ 21</span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="visual v5"><span>🤖</span></div>
+        <div class="card-body">
+          <div class="tag">Teknoloji</div>
+          <h3>Öğrencilerden görme engelliler için akıllı çözüm</h3>
+          <div class="meta">18 Eylül · 4 dk <span class="comment-count">◌ 34</span></div>
+        </div>
+      </article>
+    </div>
+    <section id="yorumlar" class="comments">
+      <h2>Topluluktan sesler <span id="commentTotal" style="color:#75867c;font:500 15px DM Sans">(2 yorum)</span></h2>
+      <div class="comment-form"><input id="name" placeholder="Adınız" maxlength="35"><textarea id="message"
+          placeholder="Bu güzel haber hakkındaki düşüncenizi paylaşın..."></textarea>
+        <div class="comment-form-footer"><small>Yorumunuz yayınlanmadan önce incelenir.</small><button
+            onclick="addComment()">Yorum gönder</button></div>
+      </div>
+      <div id="commentList">
+        <div class="comment">
+          <div class="avatar">EA</div>
+          <div class="comment-text"><b>Elif A.</b><time>2 saat önce</time>
+            <p>Böyle haberleri okumak güne gerçekten güzel başlatıyor. Emeği geçen herkese teşekkürler!</p>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="avatar">MK</div>
+          <div class="comment-text"><b>Mehmet K.</b><time>Dün</time>
+            <p>Umut veren, harika bir gelişme. Paylaştığınız için teşekkür ederim.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>© 2026 Gündoğumu · Daha güzel bir dünya mümkün.</footer>
+  <div class="modal-backdrop" id="adminModal">
+    <section class="modal">
+      <div class="modal-head">
+        <h2>Yönetim paneli</h2><button class="close" onclick="toggleAdmin()">×</button>
+      </div>
+      <div class="admin-content">
+        <div class="admin-stats">
+          <div class="stat"><b>1.284</b><small>Bu ayki ziyaretçi</small></div>
+          <div class="stat"><b>42</b><small>Yayınlanan haber</small></div>
+          <div class="stat"><b>8</b><small>Onay bekleyen yorum</small></div>
+        </div>
+        <h3>Son yorumlar</h3>
+        <ul class="admin-list">
+          <li><span>💬</span> Ayşe: “Çok güzel bir haber...” <span class="status">Onaylandı</span></li>
+          <li><span>💬</span> Deniz: “Bu projeye katkı...” <span class="status"
+              style="color:#956228;background:#fff0d8">İnceleniyor</span></li>
+          <li><span>💬</span> Can: “Umarım devamı gelir.” <span class="status"
+              style="color:#956228;background:#fff0d8">İnceleniyor</span></li>
+        </ul><button class="publish" onclick="alert('Yeni haber ekleme ekranı demo sürümde yakında açılacak.')">+ Yeni
+          haber oluştur</button>
+      </div>
+    </section>
+  </div>
+  <script>
+    let comments = 2;
+    function toggleAdmin() { document.getElementById('adminModal').classList.toggle('open') }
+    function addComment() {
+      const nameInput = document.getElementById('name');
+      const messageInput = document.getElementById('message');
+      const name = nameInput.value.trim();
+      const message = messageInput.value.trim();
+      if (!name || !message) {
+        alert('Yorum göndermek için adınızı ve mesajınızı yazın.');
+        return;
+      }
+      const initials = name.split(/\s+/).slice(0, 2).map(word => word[0]).join('').toUpperCase();
+      const item = document.createElement('div');
+      item.className = 'comment';
+      item.innerHTML = `<div class="avatar"></div><div class="comment-text"><b></b><time>Az önce</time><p></p></div>`;
+      item.querySelector('.avatar').textContent = initials;
+      item.querySelector('b').textContent = name;
+      item.querySelector('p').textContent = message;
+      document.getElementById('commentList').prepend(item);
+      nameInput.value = '';
+      messageInput.value = '';
+      comments++;
+      document.getElementById('commentTotal').textContent = `(${comments} yorum)`;
+      const button = document.querySelector('.comment-form button');
+      const originalText = button.textContent;
+      button.textContent = 'Yorumunuz gönderildi ✓';
+      button.style.background = '#2f855a';
+      setTimeout(() => { button.textContent = originalText; button.style.background = ''; }, 2200);
+    }
+    function escapeHtml(v) { const el = document.createElement('div'); el.textContent = v; return el.innerHTML }
+    function subscribe(e) { e.preventDefault(); e.target.innerHTML = '<span style="padding:10px;color:#196b49;font-size:13px;font-weight:700">Harika, listeye eklendiniz! ✦</span>' }
+    document.querySelectorAll('.chip').forEach(chip => chip.addEventListener('click', () => { document.querySelector('.chip.active').classList.remove('active'); chip.classList.add('active') }));
+    document.getElementById('adminModal').addEventListener('click', e => { if (e.target.id === 'adminModal') toggleAdmin() });
+  </script>
+  <script>
+    // Yorumlar artık sunucudan okunur ve inceleme için kalıcı olarak kaydedilir.
+    function formatCommentDate(value) {
+      const diff = Math.max(0, Date.now() - new Date(value));
+      const minutes = Math.floor(diff / 60000);
+      return minutes < 1 ? 'Az önce' : minutes < 60 ? `${minutes} dk önce` : minutes < 1440 ? `${Math.floor(minutes / 60)} saat önce` : `${Math.floor(minutes / 1440)} gün önce`;
+    }
+    function renderComments(items) {
+      const list = document.getElementById('commentList');
+      list.textContent = '';
+      items.forEach(comment => {
+        const item = document.createElement('div'); item.className = 'comment';
+        const avatar = document.createElement('div'); avatar.className = 'avatar'; avatar.textContent = comment.name.split(/\s+/).slice(0, 2).map(v => v[0]).join('').toUpperCase();
+        const copy = document.createElement('div'); copy.className = 'comment-text';
+        const name = document.createElement('b'); name.textContent = comment.name;
+        const time = document.createElement('time'); time.textContent = formatCommentDate(comment.createdAt);
+        const text = document.createElement('p'); text.textContent = comment.message;
+        copy.append(name, time, text); item.append(avatar, copy); list.append(item);
+      });
+      comments = items.length;
+      document.getElementById('commentTotal').textContent = `(${comments} yorum)`;
+    }
+    async function getApprovedComments(newsId = null) {
+      if (!window.supabaseClient) return [];
+      let query = window.supabaseClient.from('comments').select('*').eq('approved', true).order('created_at', { ascending: false });
+      if (newsId) query = query.eq('news_id', newsId);
+      const { data, error } = await query;
+      if (error) throw error;
+      return data || [];
+    }
+    async function addCommentToSupabase({ newsId = null, name, message }) {
+      const { error } = await window.supabaseClient.from('comments').insert({ news_id: newsId || null, name: name.trim(), content: message.trim(), approved: false });
+      if (error) throw error;
+    }
+    async function loadComments() {
+      const items = await getApprovedComments();
+      renderComments(items.map(c => ({ ...c, message: c.content, createdAt: c.created_at })));
+    }
+    window.addComment = async function () {
+      const nameInput = document.getElementById('name'), messageInput = document.getElementById('message');
+      const name = nameInput.value.trim(), message = messageInput.value.trim();
+      if (!name || !message) return alert('Yorum göndermek için adınızı ve mesajınızı yazın.');
+      const button = document.querySelector('.comment-form button');
+      button.disabled = true; button.textContent = 'Gönderiliyor…';
+      try {
+        await addCommentToSupabase({ name, message });
+        nameInput.value = ''; messageInput.value = '';
+        button.textContent = 'Yorumunuz incelemeye gönderildi ✓';
+      } catch (error) { alert(error.message || 'Yorum gönderilemedi.'); button.textContent = 'Yorum gönder'; }
+      finally { button.disabled = false; setTimeout(() => { button.textContent = 'Yorum gönder' }, 2500); }
+    };
+    loadComments().catch(() => { });
+  </script>
+  <script>
+    // Haber bazlı yorum alanları
+    const newsCards = [...document.querySelectorAll('.grid .card')];
+    function makeInitials(name) { return name.split(/\s+/).slice(0, 2).map(word => word[0]).join('').toUpperCase(); }
+    function displayNewsComments(container, items) {
+      container.textContent = '';
+      if (!items.length) { const empty = document.createElement('p'); empty.className = 'inline-note'; empty.textContent = 'Henüz yorum yok. İlk yorumu sen bırak!'; container.append(empty); return; }
+      items.forEach(comment => {
+        const entry = document.createElement('div'); entry.className = 'inline-comment';
+        const avatar = document.createElement('div'); avatar.className = 'avatar'; avatar.textContent = makeInitials(comment.name);
+        const copy = document.createElement('div'); const name = document.createElement('b'); name.textContent = comment.name; const message = document.createElement('p'); message.textContent = comment.message;
+        copy.append(name, message); entry.append(avatar, copy); container.append(entry);
+      });
+    }
+    async function loadNewsComments(newsId, container, count) {
+      const comments = await getApprovedComments(newsId);
+      displayNewsComments(container, comments.map(c => ({ ...c, message: c.content })));
+      count.textContent = `${comments.length} yorum`;
+    }
+    newsCards.forEach((card, index) => {
+      const newsId = null;
+      const details = document.createElement('details'); details.className = 'card-comments';
+      const summary = document.createElement('summary'); const count = document.createElement('span'); count.textContent = 'Yorumlar'; summary.append('Yorumlar ', count);
+      const list = document.createElement('div'); list.className = 'inline-comments';
+      const form = document.createElement('form'); form.className = 'inline-form';
+      const name = document.createElement('input'); name.required = true; name.maxLength = 35; name.placeholder = 'Adınız';
+      const message = document.createElement('input'); message.required = true; message.maxLength = 700; message.placeholder = 'Yorumunuzu yazın';
+      const submit = document.createElement('button'); submit.textContent = 'Gönder';
+      const note = document.createElement('p'); note.className = 'inline-note'; note.textContent = 'Yorumunuz onaylandıktan sonra yayınlanır.';
+      form.append(name, message, submit); details.append(summary, list, form, note); card.append(details);
+      details.addEventListener('toggle', () => { if (details.open) loadNewsComments(newsId, list, count).catch(() => { }); });
+      form.addEventListener('submit', async event => {
+        event.preventDefault(); submit.disabled = true; submit.textContent = '…';
+        try { await addCommentToSupabase({ newsId, name: name.value, message: message.value }); form.reset(); note.textContent = 'Teşekkürler! Yorumunuz incelemeye gönderildi.'; }
+        catch (error) { note.textContent = error.message || 'Yorum gönderilemedi.'; }
+        finally { submit.disabled = false; submit.textContent = 'Gönder'; }
+      });
+    });
+  </script>
+  <script>
+    // Ana sayfadaki canlı hava durumu kartı (varsayılan şehir: İstanbul).
+    const weatherBox = document.getElementById('weather');
+    const weatherCodes = { 0: '☀️', 1: '🌤️', 2: '⛅', 3: '☁️', 45: '🌫️', 48: '🌫️', 51: '🌦️', 53: '🌦️', 55: '🌦️', 61: '🌧️', 63: '🌧️', 65: '🌧️', 71: '🌨️', 73: '🌨️', 75: '🌨️', 80: '🌦️', 81: '🌧️', 82: '🌧️', 95: '⛈️' };
+    async function getWeather(latitude, longitude, locationName) {
+      const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,weather_code&timezone=auto`);
+      if (!response.ok) throw new Error('Hava durumu alınamadı');
+      const data = await response.json(), current = data.current;
+      weatherBox.querySelector('.weather-icon').textContent = weatherCodes[current.weather_code] || '🌤️';
+      weatherBox.querySelector('b').textContent = `${Math.round(current.temperature_2m)}°C`;
+      weatherBox.querySelector('small').textContent = locationName;
+      weatherBox.classList.remove('loading');
+    }
+    getWeather(41.0082, 28.9784, 'İstanbul').catch(() => {
+      weatherBox.querySelector('b').textContent = '—°C'; weatherBox.classList.remove('loading');
+    });
+    if (navigator.geolocation) navigator.geolocation.getCurrentPosition(
+      position => getWeather(position.coords.latitude, position.coords.longitude, 'Bulunduğun konum').catch(() => { }),
+      () => { }, { timeout: 6000, maximumAge: 900000 }
+    );
+  </script>
+  <script>
+    // Supabase'den yönetim panelinde yayınlanan haberleri ana sayfaya getirir.
+    function createPublishedNewsCard(news) {
+      const card = document.createElement('article'); card.className = 'card published-news';
+      const visual = document.createElement('div'); visual.className = 'visual v4';
+      if (news.image_url) { const image = document.createElement('img'); image.src = news.image_url; image.alt = news.title; Object.assign(image.style, { width: '100%', height: '100%', objectFit: 'cover' }); visual.append(image); }
+      else { const icon = document.createElement('span'); icon.textContent = '📰'; visual.append(icon); }
+      const body = document.createElement('div'); body.className = 'card-body';
+      const tag = document.createElement('div'); tag.className = 'tag'; tag.textContent = news.category || 'Genel';
+      const title = document.createElement('h3'); title.textContent = news.title;
+      const meta = document.createElement('div'); meta.className = 'meta'; meta.textContent = `${new Date(news.created_at).toLocaleDateString('tr-TR')} · Yeni haber`;
+      body.append(tag, title, meta); card.append(visual, body);
+      const details = document.createElement('details'); details.className = 'card-comments';
+      const summary = document.createElement('summary'); const count = document.createElement('span'); count.textContent = 'Yorumlar'; summary.append('Yorumlar ', count);
+      const list = document.createElement('div'); list.className = 'inline-comments';
+      const form = document.createElement('form'); form.className = 'inline-form';
+      const name = document.createElement('input'); name.placeholder = 'Adınız'; name.required = true; name.maxLength = 35;
+      const message = document.createElement('input'); message.placeholder = 'Yorumunuzu yazın'; message.required = true; message.maxLength = 700;
+      const button = document.createElement('button'); button.textContent = 'Gönder'; form.append(name, message, button);
+      const note = document.createElement('p'); note.className = 'inline-note'; note.textContent = 'Yorumunuz onaylandıktan sonra yayınlanır.';
+      details.append(summary, list, form, note); card.append(details);
+      const render = comments => { list.textContent = ''; count.textContent = `${comments.length} yorum`; if (!comments.length) { list.innerHTML = '<p class="inline-note">Henüz yorum yok. İlk yorumu sen bırak!</p>'; return; } comments.forEach(comment => { const line = document.createElement('div'); line.className = 'inline-comment'; const avatar = document.createElement('div'); avatar.className = 'avatar'; avatar.textContent = comment.name.split(/\s+/).slice(0, 2).map(v => v[0]).join('').toUpperCase(); const copy = document.createElement('div'); const author = document.createElement('b'); author.textContent = comment.name; const text = document.createElement('p'); text.textContent = comment.content; copy.append(author, text); line.append(avatar, copy); list.append(line); }); };
+      const load = async () => render(await getApprovedComments(news.id));
+      details.addEventListener('toggle', () => { if (details.open) load().catch(() => { }); });
+      form.addEventListener('submit', async event => { event.preventDefault(); button.disabled = true; button.textContent = '…'; try { await addCommentToSupabase({ newsId: news.id, name: name.value, message: message.value }); form.reset(); note.textContent = 'Teşekkürler! Yorumunuz incelemeye gönderildi.'; } catch (error) { note.textContent = error.message || 'Yorum gönderilemedi.'; } finally { button.disabled = false; button.textContent = 'Gönder'; } });
+      return card;
+    }
+    async function loadPublishedNews() {
+      if (!window.supabaseClient) return;
+      const { data: newsList, error } = await window.supabaseClient.from('news').select('*').eq('published', true).order('created_at', { ascending: false });
+      if (error) return;
+      const grid = document.querySelector('.grid');
+      (newsList || []).forEach(news => grid.prepend(createPublishedNewsCard(news)));
+    }
+    loadPublishedNews().catch(() => { });
+  </script>
+</body>
+
+</html>
