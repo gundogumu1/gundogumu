@@ -11,7 +11,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
     rel="stylesheet">
-  <link rel="icon" href="https://www.shutterstock.com/image-vector/sun-line-vector-icon-600w-659999746.jpg">
+  <link rel="icon"
+    href="https://chatgpt.com/backend-api/estuary/content?id=file_0000000031808210a34407dc9f13c936&ts=497325&p=fs&cid=1&sig=0c40f0b98fa7650d4561fa57f836fbe3b06ff7875ed77d1f5f7db47a1c94636a&v=0">
   <style>
     :root {
       --ink: #17251f;
@@ -638,7 +639,75 @@
         font-size: 25px
       }
     }
-  .detail-media-wrap{position:relative}.detail-carousel{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 44px 12px;scrollbar-width:thin;scroll-behavior:smooth}.detail-carousel>img,.detail-carousel>video{flex:0 0 100%;width:100%;height:460px;object-fit:contain;border-radius:12px;background:#f2f4ef;scroll-snap-align:center}.detail-carousel>video{background:#111}.detail-carousel::-webkit-scrollbar{height:7px}.detail-carousel::-webkit-scrollbar-thumb{background:#b8c7bd;border-radius:10px}.media-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:38px;height:38px;border-radius:50%;background:#fff;color:#196b49;box-shadow:0 4px 16px #17251f35;font-size:24px;font-weight:700;display:grid;place-items:center}.media-arrow.left{left:8px}.media-arrow.right{right:8px}.media-arrow:disabled{opacity:.35;cursor:not-allowed}</style>
+
+    .detail-media-wrap {
+      position: relative
+    }
+
+    .detail-carousel {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 2px 44px 12px;
+      scrollbar-width: thin;
+      scroll-behavior: smooth
+    }
+
+    .detail-carousel>img,
+    .detail-carousel>video {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 460px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: #f2f4ef;
+      scroll-snap-align: center
+    }
+
+    .detail-carousel>video {
+      background: #111
+    }
+
+    .detail-carousel::-webkit-scrollbar {
+      height: 7px
+    }
+
+    .detail-carousel::-webkit-scrollbar-thumb {
+      background: #b8c7bd;
+      border-radius: 10px
+    }
+
+    .media-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #fff;
+      color: #196b49;
+      box-shadow: 0 4px 16px #17251f35;
+      font-size: 24px;
+      font-weight: 700;
+      display: grid;
+      place-items: center
+    }
+
+    .media-arrow.left {
+      left: 8px
+    }
+
+    .media-arrow.right {
+      right: 8px
+    }
+
+    .media-arrow:disabled {
+      opacity: .35;
+      cursor: not-allowed
+    }
+  </style>
   <style>
     /* Her haber için bağımsız yorum bölümü */
     main>.comments {
@@ -901,9 +970,14 @@
         <h2 id="detailTitle">Haber</h2><button class="close" onclick="closeNewsDetail()">×</button>
       </div>
       <div style="padding:22px 27px">
-        <div class="detail-media-wrap"><button class="media-arrow left" id="mediaPrev" type="button" aria-label="Önceki medya">‹</button><div id="detailMedia" class="detail-carousel"></div><button class="media-arrow right" id="mediaNext" type="button" aria-label="Sonraki medya">›</button></div>
+        <div class="detail-media-wrap"><button class="media-arrow left" id="mediaPrev" type="button"
+            aria-label="Önceki medya">‹</button>
+          <div id="detailMedia" class="detail-carousel"></div><button class="media-arrow right" id="mediaNext"
+            type="button" aria-label="Sonraki medya">›</button>
+        </div>
         <div id="detailMeta" style="color:#75867c;font-size:12px;margin-bottom:10px"></div>
-        <p id="detailDescription" style="font-size:15px;line-height:1.75;color:#405248;margin:0;white-space:pre-wrap"></p>
+        <p id="detailDescription" style="font-size:15px;line-height:1.75;color:#405248;margin:0;white-space:pre-wrap">
+        </p>
       </div>
     </section>
   </div>
@@ -1080,11 +1154,11 @@
     // Supabase'den yönetim panelinde yayınlanan haberleri ana sayfaya getirir.
     function normalizeMedia(news) {
       const raw = Array.isArray(news.media_urls) ? news.media_urls : [];
-      const list = raw.map(item => typeof item === 'string' ? { url:item, type:/\.(mp4|webm|ogg)(\?|$)/i.test(item) ? 'video' : 'image' } : item).filter(item => item && item.url);
+      const list = raw.map(item => typeof item === 'string' ? { url: item, type: /\.(mp4|webm|ogg)(\?|$)/i.test(item) ? 'video' : 'image' } : item).filter(item => item && item.url);
       if (!list.length && news.image_url) return [{ url: news.image_url, type: 'image' }];
       if (news.image_url) {
         const coverIndex = list.findIndex(item => item.url === news.image_url);
-        if (coverIndex > 0) { const cover = list.splice(coverIndex,1)[0]; list.unshift(cover); }
+        if (coverIndex > 0) { const cover = list.splice(coverIndex, 1)[0]; list.unshift(cover); }
       }
       return list;
     }
@@ -1099,33 +1173,33 @@
       const mediaItems = normalizeMedia(news);
       const prev = document.getElementById('mediaPrev'); const next = document.getElementById('mediaNext');
       const updateArrows = () => { prev.disabled = media.scrollLeft <= 5; next.disabled = media.scrollLeft + media.clientWidth >= media.scrollWidth - 5; };
-      prev.onclick = () => media.scrollBy({left: -(media.clientWidth + 12), behavior:'smooth'});
-      next.onclick = () => media.scrollBy({left: media.clientWidth + 12, behavior:'smooth'});
+      prev.onclick = () => media.scrollBy({ left: -(media.clientWidth + 12), behavior: 'smooth' });
+      next.onclick = () => media.scrollBy({ left: media.clientWidth + 12, behavior: 'smooth' });
       media.onscroll = updateArrows;
       mediaItems.forEach(item => {
         if (item.type === 'video' || /\.(mp4|webm|ogg)(\?|$)/i.test(item.url)) {
           const video = document.createElement('video');
           video.src = item.url; video.controls = true; video.playsInline = true; video.muted = true; video.autoplay = true;
-          
+
           media.append(video);
         } else {
           const img = document.createElement('img');
           img.src = item.url; img.alt = news.title || '';
-          
+
           media.append(img);
         }
       });
       const observer = new IntersectionObserver(entries => entries.forEach(entry => {
         const video = entry.target;
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.65) video.play().catch(()=>{}); else video.pause();
-      }), {root: media, threshold:[0.65]});
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.65) video.play().catch(() => { }); else video.pause();
+      }), { root: media, threshold: [0.65] });
       media.querySelectorAll('video').forEach(v => observer.observe(v));
       requestAnimationFrame(updateArrows);
-      modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+      modal.classList.add('open'); modal.setAttribute('aria-hidden', 'false');
     }
     function closeNewsDetail() {
       const modal = document.getElementById('newsDetailModal');
-      modal.classList.remove('open'); modal.setAttribute('aria-hidden','true');
+      modal.classList.remove('open'); modal.setAttribute('aria-hidden', 'true');
     }
     window.closeNewsDetail = closeNewsDetail;
 
@@ -1137,9 +1211,9 @@
       if (firstMedia) {
         if (firstMedia.type === 'video') {
           const video = document.createElement('video'); video.src = firstMedia.url; video.muted = true; video.playsInline = true;
-          Object.assign(video.style, {width:'100%',height:'100%',objectFit:'contain',background:'#111',display:'block'}); visual.append(video);
+          Object.assign(video.style, { width: '100%', height: '100%', objectFit: 'contain', background: '#111', display: 'block' }); visual.append(video);
         } else {
-          const image = document.createElement('img'); image.src = firstMedia.url; image.alt = news.title; Object.assign(image.style, {width:'100%',height:'100%',objectFit:'contain',background:'#f2f4ef',display:'block'}); visual.append(image);
+          const image = document.createElement('img'); image.src = firstMedia.url; image.alt = news.title; Object.assign(image.style, { width: '100%', height: '100%', objectFit: 'contain', background: '#f2f4ef', display: 'block' }); visual.append(image);
         }
       } else { const icon = document.createElement('span'); icon.textContent = '📰'; visual.append(icon); }
       const body = document.createElement('div'); body.className = 'card-body';
