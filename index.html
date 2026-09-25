@@ -264,7 +264,7 @@
     }
 
     .visual {
-      height: 155px;
+      height: 220px;
       display: grid;
       place-items: center;
       font-size: 57px;
@@ -275,16 +275,6 @@
     .visual span {
       position: relative;
       z-index: 1
-    }
-
-    .visual:before {
-      content: "";
-      width: 170px;
-      height: 170px;
-      border-radius: 50%;
-      position: absolute;
-      transform: translate(40px, -27px);
-      background: #fff8ba88
     }
 
     .v1 {
@@ -346,55 +336,6 @@
       margin-left: auto;
       color: #496a59;
       font-weight: 700
-    }
-
-    .newsletter {
-      margin-top: 64px;
-      border-radius: 18px;
-      padding: 36px 42px;
-      background: var(--green);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px
-    }
-
-    .newsletter h2 {
-      font: 700 28px "Playfair Display";
-      margin: 0 0 7px
-    }
-
-    .newsletter p {
-      margin: 0;
-      color: #c9e0c7;
-      font-size: 14px
-    }
-
-    .subscribe {
-      display: flex;
-      min-width: 350px;
-      padding: 5px;
-      border-radius: 9px;
-      background: white
-    }
-
-    .subscribe input {
-      flex: 1;
-      min-width: 0;
-      border: 0;
-      outline: 0;
-      padding: 7px 10px;
-      font-size: 13px
-    }
-
-    .subscribe button {
-      padding: 10px 14px;
-      border-radius: 6px;
-      background: var(--lime);
-      color: #18351f;
-      font-weight: 700;
-      font-size: 13px
     }
 
     footer {
@@ -640,16 +581,6 @@
         grid-column: span 2
       }
 
-      .newsletter {
-        margin-top: 40px;
-        padding: 28px;
-        display: block
-      }
-
-      .subscribe {
-        margin-top: 19px;
-        min-width: 0
-      }
 
       .admin-stats {
         grid-template-columns: 1fr
@@ -707,7 +638,7 @@
         font-size: 25px
       }
     }
-  </style>
+  .detail-media-wrap{position:relative}.detail-carousel{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 44px 12px;scrollbar-width:thin;scroll-behavior:smooth}.detail-carousel>img,.detail-carousel>video{flex:0 0 100%;width:100%;height:460px;object-fit:contain;border-radius:12px;background:#f2f4ef;scroll-snap-align:center}.detail-carousel>video{background:#111}.detail-carousel::-webkit-scrollbar{height:7px}.detail-carousel::-webkit-scrollbar-thumb{background:#b8c7bd;border-radius:10px}.media-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:38px;height:38px;border-radius:50%;background:#fff;color:#196b49;box-shadow:0 4px 16px #17251f35;font-size:24px;font-weight:700;display:grid;place-items:center}.media-arrow.left{left:8px}.media-arrow.right{right:8px}.media-arrow:disabled{opacity:.35;cursor:not-allowed}</style>
   <style>
     /* Her haber için bağımsız yorum bölümü */
     main>.comments {
@@ -718,6 +649,7 @@
       border-top: 1px solid var(--line);
       padding: 14px 17px 17px;
       background: #fcfdfa;
+      cursor: default;
     }
 
     .card-comments summary {
@@ -963,6 +895,18 @@
     </section>
   </main>
   <footer>© 2026 Gündoğumu · Daha güzel bir dünya mümkün.</footer>
+  <div class="modal-backdrop" id="newsDetailModal" aria-hidden="true">
+    <section class="modal news-detail-modal">
+      <div class="modal-head">
+        <h2 id="detailTitle">Haber</h2><button class="close" onclick="closeNewsDetail()">×</button>
+      </div>
+      <div style="padding:22px 27px">
+        <div class="detail-media-wrap"><button class="media-arrow left" id="mediaPrev" type="button" aria-label="Önceki medya">‹</button><div id="detailMedia" class="detail-carousel"></div><button class="media-arrow right" id="mediaNext" type="button" aria-label="Sonraki medya">›</button></div>
+        <div id="detailMeta" style="color:#75867c;font-size:12px;margin-bottom:10px"></div>
+        <p id="detailDescription" style="font-size:15px;line-height:1.75;color:#405248;margin:0;white-space:pre-wrap"></p>
+      </div>
+    </section>
+  </div>
   <div class="modal-backdrop" id="adminModal">
     <section class="modal">
       <div class="modal-head">
@@ -1017,7 +961,6 @@
       setTimeout(() => { button.textContent = originalText; button.style.background = ''; }, 2200);
     }
     function escapeHtml(v) { const el = document.createElement('div'); el.textContent = v; return el.innerHTML }
-    function subscribe(e) { e.preventDefault(); e.target.innerHTML = '<span style="padding:10px;color:#196b49;font-size:13px;font-weight:700">Harika, listeye eklendiniz! ✦</span>' }
     document.querySelectorAll('.chip').forEach(chip => chip.addEventListener('click', () => { document.querySelector('.chip.active').classList.remove('active'); chip.classList.add('active') }));
     document.getElementById('adminModal').addEventListener('click', e => { if (e.target.id === 'adminModal') toggleAdmin() });
   </script>
@@ -1075,12 +1018,11 @@
     loadComments().catch(() => { });
   </script>
   <script>
-    // Haber bazlı yorum alanları
-    const newsCards = [...document.querySelectorAll('.grid .card')];
-    function makeInitials(name) { return name.split(/\s+/).slice(0, 2).map(word => word[0]).join('').toUpperCase(); }
+    // Her yayınlanan haber için bağımsız yorum alanı
+    function makeInitials(name) { return String(name || '').split(/\s+/).slice(0, 2).map(word => word[0]).join('').toUpperCase() || 'A'; }
     function displayNewsComments(container, items) {
       container.textContent = '';
-      if (!items.length) { const empty = document.createElement('p'); empty.className = 'inline-note'; empty.textContent = 'Henüz yorum yok. İlk yorumu sen bırak!'; container.append(empty); return; }
+      if (!items.length) { const empty = document.createElement('p'); empty.className = 'inline-note'; empty.textContent = 'Henüz onaylanmış yorum yok. İlk yorumu sen bırak!'; container.append(empty); return; }
       items.forEach(comment => {
         const entry = document.createElement('div'); entry.className = 'inline-comment';
         const avatar = document.createElement('div'); avatar.className = 'avatar'; avatar.textContent = makeInitials(comment.name);
@@ -1091,12 +1033,11 @@
     async function loadNewsComments(newsId, container, count) {
       const comments = await getApprovedComments(newsId);
       displayNewsComments(container, comments.map(c => ({ ...c, message: c.content })));
-      count.textContent = `${comments.length} yorum`;
+      count.textContent = `(${comments.length})`;
     }
-    newsCards.forEach((card, index) => {
-      const newsId = null;
-      const details = document.createElement('details'); details.className = 'card-comments';
-      const summary = document.createElement('summary'); const count = document.createElement('span'); count.textContent = 'Yorumlar'; summary.append('Yorumlar ', count);
+    function attachNewsComments(card, newsId) {
+      const details = document.createElement('details'); details.className = 'card-comments'; details.open = true;
+      const summary = document.createElement('summary'); const count = document.createElement('span'); count.textContent = '(0)'; summary.append('Yorumlar ', count);
       const list = document.createElement('div'); list.className = 'inline-comments';
       const form = document.createElement('form'); form.className = 'inline-form';
       const name = document.createElement('input'); name.required = true; name.maxLength = 35; name.placeholder = 'Adınız';
@@ -1104,14 +1045,15 @@
       const submit = document.createElement('button'); submit.textContent = 'Gönder';
       const note = document.createElement('p'); note.className = 'inline-note'; note.textContent = 'Yorumunuz onaylandıktan sonra yayınlanır.';
       form.append(name, message, submit); details.append(summary, list, form, note); card.append(details);
-      details.addEventListener('toggle', () => { if (details.open) loadNewsComments(newsId, list, count).catch(() => { }); });
+      details.addEventListener('click', event => event.stopPropagation());
+      loadNewsComments(newsId, list, count).catch(() => { });
       form.addEventListener('submit', async event => {
-        event.preventDefault(); submit.disabled = true; submit.textContent = '…';
+        event.preventDefault(); event.stopPropagation(); submit.disabled = true; submit.textContent = '…';
         try { await addCommentToSupabase({ newsId, name: name.value, message: message.value }); form.reset(); note.textContent = 'Teşekkürler! Yorumunuz incelemeye gönderildi.'; }
         catch (error) { note.textContent = error.message || 'Yorum gönderilemedi.'; }
         finally { submit.disabled = false; submit.textContent = 'Gönder'; }
       });
-    });
+    }
   </script>
   <script>
     // Ana sayfadaki canlı hava durumu kartı (varsayılan şehir: İstanbul).
@@ -1136,39 +1078,102 @@
   </script>
   <script>
     // Supabase'den yönetim panelinde yayınlanan haberleri ana sayfaya getirir.
+    function normalizeMedia(news) {
+      const raw = Array.isArray(news.media_urls) ? news.media_urls : [];
+      const list = raw.map(item => typeof item === 'string' ? { url:item, type:/\.(mp4|webm|ogg)(\?|$)/i.test(item) ? 'video' : 'image' } : item).filter(item => item && item.url);
+      if (!list.length && news.image_url) return [{ url: news.image_url, type: 'image' }];
+      if (news.image_url) {
+        const coverIndex = list.findIndex(item => item.url === news.image_url);
+        if (coverIndex > 0) { const cover = list.splice(coverIndex,1)[0]; list.unshift(cover); }
+      }
+      return list;
+    }
+
+    function openNewsDetail(news) {
+      const modal = document.getElementById('newsDetailModal');
+      const media = document.getElementById('detailMedia');
+      document.getElementById('detailTitle').textContent = news.title || 'Haber';
+      document.getElementById('detailMeta').textContent = `${news.category || 'Genel'} · ${new Date(news.created_at || Date.now()).toLocaleDateString('tr-TR')}`;
+      document.getElementById('detailDescription').textContent = news.excerpt || news.content || 'Bu haber için henüz açıklama eklenmemiş.';
+      media.textContent = '';
+      const mediaItems = normalizeMedia(news);
+      const prev = document.getElementById('mediaPrev'); const next = document.getElementById('mediaNext');
+      const updateArrows = () => { prev.disabled = media.scrollLeft <= 5; next.disabled = media.scrollLeft + media.clientWidth >= media.scrollWidth - 5; };
+      prev.onclick = () => media.scrollBy({left: -(media.clientWidth + 12), behavior:'smooth'});
+      next.onclick = () => media.scrollBy({left: media.clientWidth + 12, behavior:'smooth'});
+      media.onscroll = updateArrows;
+      mediaItems.forEach(item => {
+        if (item.type === 'video' || /\.(mp4|webm|ogg)(\?|$)/i.test(item.url)) {
+          const video = document.createElement('video');
+          video.src = item.url; video.controls = true; video.playsInline = true; video.muted = true; video.autoplay = true;
+          
+          media.append(video);
+        } else {
+          const img = document.createElement('img');
+          img.src = item.url; img.alt = news.title || '';
+          
+          media.append(img);
+        }
+      });
+      const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+        const video = entry.target;
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.65) video.play().catch(()=>{}); else video.pause();
+      }), {root: media, threshold:[0.65]});
+      media.querySelectorAll('video').forEach(v => observer.observe(v));
+      requestAnimationFrame(updateArrows);
+      modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+    }
+    function closeNewsDetail() {
+      const modal = document.getElementById('newsDetailModal');
+      modal.classList.remove('open'); modal.setAttribute('aria-hidden','true');
+    }
+    window.closeNewsDetail = closeNewsDetail;
+
     function createPublishedNewsCard(news) {
       const card = document.createElement('article'); card.className = 'card published-news';
+      card.style.cursor = 'pointer';
       const visual = document.createElement('div'); visual.className = 'visual v4';
-      if (news.image_url) { const image = document.createElement('img'); image.src = news.image_url; image.alt = news.title; Object.assign(image.style, { width: '100%', height: '100%', objectFit: 'cover' }); visual.append(image); }
-      else { const icon = document.createElement('span'); icon.textContent = '📰'; visual.append(icon); }
+      const firstMedia = normalizeMedia(news)[0];
+      if (firstMedia) {
+        if (firstMedia.type === 'video') {
+          const video = document.createElement('video'); video.src = firstMedia.url; video.muted = true; video.playsInline = true;
+          Object.assign(video.style, {width:'100%',height:'100%',objectFit:'contain',background:'#111',display:'block'}); visual.append(video);
+        } else {
+          const image = document.createElement('img'); image.src = firstMedia.url; image.alt = news.title; Object.assign(image.style, {width:'100%',height:'100%',objectFit:'contain',background:'#f2f4ef',display:'block'}); visual.append(image);
+        }
+      } else { const icon = document.createElement('span'); icon.textContent = '📰'; visual.append(icon); }
       const body = document.createElement('div'); body.className = 'card-body';
       const tag = document.createElement('div'); tag.className = 'tag'; tag.textContent = news.category || 'Genel';
       const title = document.createElement('h3'); title.textContent = news.title;
-      const meta = document.createElement('div'); meta.className = 'meta'; meta.textContent = `${new Date(news.created_at).toLocaleDateString('tr-TR')} · Yeni haber`;
+      const meta = document.createElement('div'); meta.className = 'meta'; meta.textContent = `${new Date(news.created_at).toLocaleDateString('tr-TR')} · Detayları görmek için tıklayın`;
       body.append(tag, title, meta); card.append(visual, body);
-      const details = document.createElement('details'); details.className = 'card-comments';
-      const summary = document.createElement('summary'); const count = document.createElement('span'); count.textContent = 'Yorumlar'; summary.append('Yorumlar ', count);
-      const list = document.createElement('div'); list.className = 'inline-comments';
-      const form = document.createElement('form'); form.className = 'inline-form';
-      const name = document.createElement('input'); name.placeholder = 'Adınız'; name.required = true; name.maxLength = 35;
-      const message = document.createElement('input'); message.placeholder = 'Yorumunuzu yazın'; message.required = true; message.maxLength = 700;
-      const button = document.createElement('button'); button.textContent = 'Gönder'; form.append(name, message, button);
-      const note = document.createElement('p'); note.className = 'inline-note'; note.textContent = 'Yorumunuz onaylandıktan sonra yayınlanır.';
-      details.append(summary, list, form, note); card.append(details);
-      const render = comments => { list.textContent = ''; count.textContent = `${comments.length} yorum`; if (!comments.length) { list.innerHTML = '<p class="inline-note">Henüz yorum yok. İlk yorumu sen bırak!</p>'; return; } comments.forEach(comment => { const line = document.createElement('div'); line.className = 'inline-comment'; const avatar = document.createElement('div'); avatar.className = 'avatar'; avatar.textContent = comment.name.split(/\s+/).slice(0, 2).map(v => v[0]).join('').toUpperCase(); const copy = document.createElement('div'); const author = document.createElement('b'); author.textContent = comment.name; const text = document.createElement('p'); text.textContent = comment.content; copy.append(author, text); line.append(avatar, copy); list.append(line); }); };
-      const load = async () => render(await getApprovedComments(news.id));
-      details.addEventListener('toggle', () => { if (details.open) load().catch(() => { }); });
-      form.addEventListener('submit', async event => { event.preventDefault(); button.disabled = true; button.textContent = '…'; try { await addCommentToSupabase({ newsId: news.id, name: name.value, message: message.value }); form.reset(); note.textContent = 'Teşekkürler! Yorumunuz incelemeye gönderildi.'; } catch (error) { note.textContent = error.message || 'Yorum gönderilemedi.'; } finally { button.disabled = false; button.textContent = 'Gönder'; } });
+      card.addEventListener('click', () => openNewsDetail(news));
+      attachNewsComments(card, news.id);
       return card;
     }
+
     async function loadPublishedNews() {
       if (!window.supabaseClient) return;
       const { data: newsList, error } = await window.supabaseClient.from('news').select('*').eq('published', true).order('created_at', { ascending: false });
       if (error) return;
       const grid = document.querySelector('.grid');
-      (newsList || []).forEach(news => grid.prepend(createPublishedNewsCard(news)));
+      grid.textContent = '';
+      (newsList || []).forEach(news => grid.append(createPublishedNewsCard(news)));
+      if (!newsList || !newsList.length) {
+        const empty = document.createElement('p'); empty.textContent = 'Henüz yayınlanmış haber bulunmuyor.'; empty.style.cssText = 'grid-column:1/-1;padding:30px;text-align:center;color:#748178'; grid.append(empty);
+      }
     }
     loadPublishedNews().catch(() => { });
+  </script>
+  <script>
+    // Her sayfa görüntülemesini gerçek ziyaret kaydı olarak saklar.
+    (async function trackVisit() {
+      try {
+        if (window.supabaseClient) {
+          await window.supabaseClient.from('site_visits').insert({ path: location.pathname });
+        }
+      } catch (error) { console.warn('Ziyaret kaydı yapılamadı:', error.message || error); }
+    })();
   </script>
 </body>
 
